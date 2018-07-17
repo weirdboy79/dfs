@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Dfs
+Comment=Dfs P2P Cryptocurrency
+Comment[fr]=Dfs, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=Dfs, eşten eşe kriptografik sanal para birimi
+Exec=dfs-qt %u
+Terminal=false
+Type=Application
+Icon=dfs128
+MimeType=x-scheme-handler/dfs;
+Categories=Office;Finance;

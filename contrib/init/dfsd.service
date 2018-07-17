@@ -1,0 +1,26 @@
+[Unit]
+Description=DFS's distributed currency daemon
+After=network.target
+
+[Service]
+User=dfs
+Group=dfs
+
+Type=forking
+PIDFile=/var/lib/dfsd/dfsd.pid
+
+ExecStart=/usr/bin/dfsd -daemon -pid=/var/lib/dfsd/dfsd.pid \
+          -conf=/etc/dfs/dfs.conf -datadir=/var/lib/dfsd
+
+ExecStop=-/usr/bin/dfs-cli -conf=/etc/dfs/dfs.conf \
+         -datadir=/var/lib/dfsd stop
+
+Restart=always
+PrivateTmp=true
+TimeoutStopSec=60s
+TimeoutStartSec=2s
+StartLimitInterval=120s
+StartLimitBurst=5
+
+[Install]
+WantedBy=multi-user.target
