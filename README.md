@@ -4,6 +4,11 @@
 
 Defense is a web service and plugin for cryptocurrency wallets that allows you to pack and unpack cryptocurrencies into a special file, DefenseBox. 
 
+All binaries for different operating systems, you can download in the releases repository:
+
+https://github.com/dfscoin/dfs/releases
+P2P port: 28991, RPC port: 28992
+
 ----
 
 #### Defense Lab
@@ -41,3 +46,58 @@ All the features of Defense Box in one service. With a few clicks, you can:
 * Unpack a Defense Box and send the contents to a desired wallet;
 * Save the Defense Box and send it at the right time to a recipient;
 * Create Defense Box with special unpacking conditions.
+
+----
+
+### Masternode Setup Guide
+
+#### Desktop wallet setup Step 1
+
+1. Open your Defense coin wallet
+2. Go to debug console (Tools - Debug Console) and enter the following commands:
+
+`masternode genkey` *save this masternode privkey*
+
+`getaccountaddress 0` *you will get new Masternode wallet address*
+
+3. Send 1000 DFS to Masternode wallet address.
+4. Enter the following command: 
+
+`masternode outputs` *proof of transaction*
+
+5. Open your masternode.conf file (Tools - Open Masternode Configuration file) and add the following line (port=28991):
+
+`MN_ALIAS SERVER_IP:28991 masternode_privkey output_txid output_index` 
+
+*Example: MN1 127.0.0.1:28991 DBXwMhcuKsm9ZaAJo2LziNyvUWHX2QkXe8HsnmeIfdj wMhcuKsm9ZaAJo2LziNyvUWHX2QkMhcuKsm9ZaAJo2LziNyvUWHX2QkXeKsm9ZaAJo2LziNyvUWHX2QkXe8 1*
+
+#### Server setup
+
+Connect to VPS server Terminal via SSH using Putty/Bitvise client andrun automatic installation script:
+
+`wget -q https://github.com/dfscoin/dfs/releases/download/v3.0.0.0/masternode.sh && bash masternode.sh` *you'll need to paste your masternode_privkey while installing*
+
+#### Desktop wallet setup Step 2
+
+1. Close and open your Defense coin wallet
+2. Go to Debug Console and enter the following command:
+
+`startmasternode alias 0 <MN_ALIAS>` *You should see something like this: { "alias" : "MN1", "result" : "successful" }*
+
+#### Server Usage
+
+`dfs-cli mnsync status`
+
+`dfs-cli getinfo`
+
+`dfs-cli masternode status`
+
+Also, if you want to check/start/stop DFS, run one of the following commands as root:
+
+`systemctl status dfs` *To check the service is running*
+
+`systemctl start dfs` *To start dfs service*
+
+`systemctl stop dfs` *To stop dfs service*
+
+`systemctl is-enabled dfs` *To check whether or not the dfs service is enabled on boot or not*
