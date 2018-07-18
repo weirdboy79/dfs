@@ -112,18 +112,18 @@ Also, if you want to check/start/stop DFS, run one of the following commands as 
 
 2. Close and open your Defense coin wallet
 3. Resent new collateral
-5. Wait 20 confirmation
-6. Enter the following command:
+4. Wait 20 confirmation
+5. Enter the following command:
 
 `masternode outputs` *proof of transaction*
 
-7. Open your masternode.conf file (Tools - Open Masternode Configuration file). Remove # that you added before and update new collateral output_txid and output_index
+6. Open your masternode.conf file (Tools - Open Masternode Configuration file). Remove # that you added before and update new collateral output_txid and output_index
 
 `MN_ALIAS SERVER_IP:28991 masternode_privkey output_txid output_index`
 
 *Example MN1 127.0.0.1:28991 DBXwMhcuKsm9ZaAJo2LziNyvUWHX2QkXe8HsnmeIfdj **new_output_txid** **new_output_index***
 
-8. Close and open your Defense coin wallet
-9. Go to Debug Console and enter the following command:
+7. Close and open your Defense coin wallet
+8. Go to Debug Console and enter the following command:
 
 `startmasternode alias 0 <MN_ALIAS>` *You should see something like this: { "alias" : "MN1", "result" : "successful" }*
