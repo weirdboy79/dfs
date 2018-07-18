@@ -65,7 +65,7 @@ All the features of Defense Box in one service. With a few clicks, you can:
 
 `masternode outputs` *proof of transaction*
 
-5. Open your masternode.conf file (Tools - Open Masternode Configuration file) and add the following line (port=28991):
+5. Open your masternode.conf file (Tools - Open Masternode Configuration file) and add the following line:
 
 `MN_ALIAS SERVER_IP:28991 masternode_privkey output_txid output_index` 
 
@@ -101,3 +101,24 @@ Also, if you want to check/start/stop DFS, run one of the following commands as 
 `systemctl stop dfs` *To stop dfs service*
 
 `systemctl is-enabled dfs` *To check whether or not the dfs service is enabled on boot or not*
+
+----
+
+### Masternode Update Collateral Guide
+
+1. Open your masternode.conf file (Tools - Open Masternode Configuration file) and add **#** before MN1
+
+*Example #MN1 127.0.0.1:28991 DBXwMhcuKsm9ZaAJo2LziNyvUWHX2QkXe8HsnmeIfdj wMhcuKsm9ZaAJo2LziNyvUWHX2QkMhcuKsm9ZaAJo2LziNyvUWHX2QkXeKsm9ZaAJo2LziNyvUWHX2QkXe8 1*
+
+2. Close and open your Defense coin wallet
+3. Resent new collateral
+5. Wait 20 confirmation
+6. Enter the following command:
+
+`masternode outputs` *proof of transaction*
+
+7. Open your masternode.conf file (Tools - Open Masternode Configuration file) and edit the following line:
+
+`MN_ALIAS SERVER_IP:28991 masternode_privkey output_txid output_index`
+
+*Example #MN1 127.0.0.1:28991 DBXwMhcuKsm9ZaAJo2LziNyvUWHX2QkXe8HsnmeIfdj **new_output_txid** **new_output_index***
