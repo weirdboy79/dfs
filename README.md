@@ -60,7 +60,7 @@ All the features of Defense Box in one service. With a few clicks, you can:
 
 `getaccountaddress 0` *you will get new Masternode wallet address*
 
-3. Send 1000 DFS to Masternode wallet address.
+3. Send 4000 DFS to Masternode wallet address.
 4. Enter the following command: 
 
 `masternode outputs` *proof of transaction*
